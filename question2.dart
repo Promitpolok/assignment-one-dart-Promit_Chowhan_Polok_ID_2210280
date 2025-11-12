@@ -6,7 +6,7 @@ import 'dart:math';
 void main() {
   // 1. Create a List<String> of student names: ["Alice", "Bob", "Charlie", "Diana", "Eve"]
   // TODO: Create the student names list
-  List<String> studentNames = []; // TODO: Add the student names
+  List<String> studentNames = ["Shanto", "Shikto", "Soham", "Nahin", "Siam"]; // TODO: Add the student names
   
   // 2. Create a Map<String, int> to store student scores
   // TODO: Create the scores map
@@ -16,6 +16,9 @@ void main() {
   // TODO: Implement the for loop to assign random scores
   Random random = Random();
   // TODO: Add your for loop here
+  for (String student in studentNames){
+    studentScores[student] = 60 + random.nextInt(41);
+  }
   
   // 4. Find and display:
   //    - The student with the highest score
@@ -29,11 +32,26 @@ void main() {
   double averageScore = 0.0;
   
   // TODO: Add your logic here
+  int totalScore =0;
+
+  studentScores.forEach((student, score) {
+    totalScore += score;
+    if (score>highestScore){
+      highestScore=score;
+      highestStudent=student;
+    }
+    if (score<lowestScore){
+      lowestScore=score;
+      lowestStudent=student;
+    }
+  });
+
+  averageScore =totalScore/studentScores.length;
   
   print("Student Scores: $studentScores");
   print("Highest Score: $highestStudent with $highestScore");
   print("Lowest Score: $lowestStudent with $lowestScore");
-  print("Average Score: $averageScore");
+  print("Average Score: ${averageScore.toStringAsFixed(2)}");
   
   // 5. Use a switch statement to categorize students:
   //    - 90-100: "Excellent"

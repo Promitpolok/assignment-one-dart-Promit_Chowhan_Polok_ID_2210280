@@ -20,6 +20,13 @@ class BankAccount {
   // TODO: Implement the deposit method
   void deposit(double amount) {
     // TODO: Add the amount to balance
+    if (amount>0){
+      balance+=amount;
+      print("Deposited \$${amount.toStringAsFixed(2)} into $accountHolder's account.");
+    }else {
+      print("Deposit amount must be greater than 0.");
+
+    }
   }
   
   //    - withdraw(double amount): Remove money from account (check for sufficient funds)
@@ -27,19 +34,33 @@ class BankAccount {
   void withdraw(double amount) {
     // TODO: Check for sufficient funds and subtract amount
     // TODO: Print error message if insufficient funds
+    if (amount<=0){
+      print("Withdrawal amount must be greater than 0.");
+    }else if (amount>balance){
+      print("Insufficient funds for $accountHolder. Current Balance: \$${balance.toStringAsFixed(2)}");
+    }else{
+      balance-=amount;
+      print("Withdraw \$${amount.toStringAsFixed(2)} from $accountHolder's account.");
+    }
   }
   
   //    - getBalance(): Return current balance
   // TODO: Implement the getBalance method
   double getBalance() {
     // TODO: Return the current balance
-    return 0.0; // TODO: Replace with actual balance
+    return balance; // TODO: Replace with actual balance
   }
   
   //    - displayAccountInfo(): Show account details
   // TODO: Implement the displayAccountInfo method
   void displayAccountInfo() {
     // TODO: Display account information
+    print("\n--- Account Information ---");
+    print("Account Number: $accountNumber");
+    print("Account Holder: $accountHolder");
+    print("Account Type: $accountType");
+    print("Current Balance: \$${balance.toStringAsFixed(2)}");
+    print("---------------------------");
   }
 }
 
@@ -51,9 +72,9 @@ void main() {
   //    - Handling insufficient funds scenario
   
   // TODO: Create 3 bank accounts
-  BankAccount account1 = BankAccount("12345", "Alice", "Savings");
-  BankAccount account2 = BankAccount("67890", "Bob", "Checking");
-  BankAccount account3 = BankAccount("11111", "Charlie", "Savings");
+  BankAccount account1 = BankAccount("12345", "Promit", "Savings");
+  BankAccount account2 = BankAccount("67890", "Shanto", "Checking");
+  BankAccount account3 = BankAccount("11111", "Nahin", "Savings");
   
   // TODO: Demonstrate depositing money
   account1.deposit(1000.0);
