@@ -89,8 +89,8 @@ void main() {
   // 3. Create a list of vehicles and demonstrate polymorphism by calling start(), stop(), and displayInfo() on each vehicle
   // TODO: Create a list of vehicles
   List<Vehicle> vehicles = [
-    Car("Toyota", "Camry", 2020, 4),
-    Motorcycle("Honda", "CBR", 2021, true),
+    Car("Toyota", "Camry", 2023, 4),
+    Motorcycle("Honda", "CBR", 2024, true),
   ];
   
   // TODO: Demonstrate polymorphism
@@ -98,7 +98,8 @@ void main() {
     vehicle.displayInfo();
     vehicle.start();
     vehicle.stop();
-    print("${vehicle.brand} age: ${vehicle.calculateAge()} years");
     print("");
   }
+  print("Car age: ${vehicles[0].calculateAge()} years");
+  print("Motorcycle age: ${vehicles[1].calculateAge()} years");
 }
